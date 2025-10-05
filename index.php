@@ -19,6 +19,12 @@ switch ($page) {
         $productController2->indexProduct();
         break;
 
+    case 'productList':
+        require 'controller/ProductController.php';
+        $producList3 = new ProductController();
+        $producList3->listProduct();
+        break;
+
     default:
 
         echo "<h1> cette page est inconnue ! </h1>";
