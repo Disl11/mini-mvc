@@ -1,13 +1,25 @@
 <?php
 
-require 'model/User.php';
 
 class UserController
 {
 
-    public function index()
+
+    public $userDao;
+
+
+    public function __construct($userDao)
     {
-        $user = new User("Brian");
+        $this->userDao = $userDao;
+    }
+
+
+
+    public function displayAllUsers()
+    {
+        $users = $this->userDao->getAllUsers();
+
+        var_dump($users);
 
         require __DIR__ . '/../view/userView.php';
     }

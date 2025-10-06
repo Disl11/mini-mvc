@@ -8,7 +8,13 @@
 </head>
 
 <body>
-    <h1>Utilisateur <?= htmlspecialchars($user->getname(), ENT_QUOTES, 'UTF-8') ?></h1>
+    <ul>
+        <?php foreach ($users as $user):  ?>
+            <li>
+                <p>Utilisateur <?= htmlspecialchars($user->name, ENT_QUOTES, 'UTF-8') ?></p>
+            </li>
+        <?php endforeach ?>
+    </ul>
 </body>
 
 </html>

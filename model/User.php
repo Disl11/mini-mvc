@@ -3,20 +3,12 @@
 class User
 {
 
-    private $name;
+    public  $name;
+    public  $id;
 
-    public function __construct($name)
+    public function __construct($name, $id)
     {
         $this->name = $name;
-    }
-
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function setName($name)
-    {
-        $this->name = $name;
+        $this->id = $id;
     }
 }

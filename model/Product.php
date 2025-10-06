@@ -3,32 +3,14 @@
 class Product
 {
 
-    private $title;
-    private int $price;
+    public $title;
+    public int $price;
+    public int $id;
 
-    public function __construct(string $title, int $price)
+    public function __construct(string $title, int $price, int $id)
     {
         $this->title = $title;
         $this->price = $price;
-    }
-
-    public function getTitle()
-    {
-
-        return $this->title;
-    }
-
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    public function setTitle($title)
-    {
-        $this->title = $title;
-    }
-    public function setPrice($price)
-    {
-        $this->price = $price;
+        $this->id = $id;
     }
 }

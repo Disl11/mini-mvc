@@ -12,7 +12,7 @@
     <ul>
         <?php foreach ($products as $product): ?>
             <li>
-                <?php echo  htmlspecialchars($product->getTitle(), ENT_QUOTES, 'UTF-8') . " : "; ?>
+                <?php echo htmlspecialchars($product->getTitle(), ENT_QUOTES, 'UTF-8') . " : "; ?>
                 <?php echo htmlspecialchars($product->getPrice(), ENT_QUOTES, 'UTF-8') . "€"; ?>
             </li>
         <?php endforeach ?>
