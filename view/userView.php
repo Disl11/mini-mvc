@@ -9,7 +9,7 @@
 
 <body>
     <h1>Liste des utilisateurs</h1>
-    <a href="index.php?page=productList">page produit</a>
+    <a href="index.php?page=product">page produit</a>
     <ul>
         <?php foreach ($users as $user):  ?>
             <li>

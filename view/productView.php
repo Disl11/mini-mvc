@@ -9,13 +9,14 @@
 
 <body>
     <h1>Les produits</h1>
-    <a href="index.php?page=user">page user</a>
+    <a href="index.php?page=user&action=displayAllUsers">page user</a>
     <ul>
         <?php foreach ($products as $product): ?>
             <li>
                 <?php echo htmlspecialchars($product->title, ENT_QUOTES, 'UTF-8') . " : "; ?>
                 <?php echo htmlspecialchars($product->price, ENT_QUOTES, 'UTF-8') . "€"; ?>
-                <a href="index.php?page=product&id=<?= $product->id; ?>">discription produit</a>
+                <a href="index.php?page=product&action=detail&id=<?= $product->id; ?>">discription produit</a>
+                <a href="index.php?page=product&action=deleteProduct&id=<?= $product->id ?>">Supprimer</a>
             </li>
         <?php endforeach ?>
     </ul>

@@ -15,7 +15,7 @@
     <p>Description : <?= htmlspecialchars($product->description) ?></p>
 
 
-    <a href="index.php?page=productList">retour liste des produit</a>
+    <a href="index.php?page=product&action=list">retour liste des produit</a>
 
 
 </body>

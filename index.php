@@ -10,32 +10,51 @@ $userDao = new UserDao($pdo);
 
 $productDao = new ProductDao($pdo);
 
+// var_dump($_GET);
 
-
-
-$page = isset($_GET['page']) ? $_GET['page'] : null;
+$page = $_GET['page'] ?? "product";
+$action = $_GET['action'] ?? "list";
 
 
 switch ($page) {
     case 'user':
         require 'controller/UserController.php';
         $userController1 = new UserController($userDao);
-        $userController1->displayAllUsers();
+
+        switch ($action) {
+            case 'displayAllUsers':
+                $userController1->displayAllUsers();
+                break;
+        }
+
         break;
 
     case 'product':
         require 'controller/ProductController.php';
-        $productController2 = new ProductController($productDao);
-        $productController2->displayProductDetails();
+        $productController = new ProductController($productDao);
+
+        switch ($action) {
+            case 'detail':
+
+                $productController->displayProductDetails();
+
+                break;
+            case 'list':
+
+                $productController->displayAllProduct();
+
+                break;
+
+            case 'deleteProduct':
+                $productController->deleteProduct();
+
+                break;
+
+            default:
+                echo "action pas connue !";
+                break;
+        }
         break;
-
-    case 'productList':
-        require 'controller/ProductController.php';
-        $producList3 = new ProductController($productDao);
-        $producList3->displayAllProduct();
-        break;
-
-
 
     default:
 

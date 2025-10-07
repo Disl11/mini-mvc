@@ -7,7 +7,6 @@ class ProductDao
 
     public function __construct(PDO $pdo)
     {
-
         $this->pdo = $pdo;
     }
 
@@ -28,6 +27,8 @@ class ProductDao
         return $products;
     }
 
+
+    //function pour récuper par id dans la base de donner
     public function getProductById($id)
     {
         $query = "SELECT * FROM products WHERE id = :id";
@@ -40,5 +41,12 @@ class ProductDao
             return new Product($data['title'], $data['price'], $data['id'], $data['Description']);
         }
         return null;
+    }
+
+    public function deleteProduct($id)
+    {
+        $query = "DELETE FROM products WHERE id = :id";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute([':id' => $id]);
     }
 }

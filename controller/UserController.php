@@ -14,7 +14,6 @@ class UserController
     }
 
 
-
     public function displayAllUsers()
     {
         $users = $this->userDao->getAllUsers();
