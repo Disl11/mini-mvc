@@ -6,14 +6,27 @@ class ProductController
 {
 
 
-    public function indexProduct()
-    {
+    public $productDao;
 
-        require __DIR__ . '/../view/productView.php';
+    public function __construct($productDao)
+    {
+        $this->productDao = $productDao;
     }
 
-    public function listProduct()
+    public function displayProductDetails()
     {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $product = $this->productDao->getProductById($id);
+        }
+
+        require __DIR__ . '/../view/detailProductView.php';
+    }
+
+    public function displayAllProduct()
+    {
+
+        $products = $this->productDao->getAllProduct();
         require __DIR__ . '/../view/productView.php';
     }
 }

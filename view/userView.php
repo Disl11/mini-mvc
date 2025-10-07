@@ -8,10 +8,12 @@
 </head>
 
 <body>
+    <h1>Liste des utilisateurs</h1>
+    <a href="index.php?page=productList">page produit</a>
     <ul>
         <?php foreach ($users as $user):  ?>
             <li>
-                <p>Utilisateur <?= htmlspecialchars($user->name, ENT_QUOTES, 'UTF-8') ?></p>
+                <p>Utilisateur : <?= htmlspecialchars($user->name, ENT_QUOTES, 'UTF-8') ?></p>
             </li>
         <?php endforeach ?>
     </ul>

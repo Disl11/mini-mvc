@@ -2,12 +2,13 @@
 require_once 'model/User.php';
 require_once 'Db.php';
 require_once 'model/dao/UserDao.php';
-
-
+require_once 'model/dao/ProductDao.php';
 
 
 $pdo = Db::getConnexion();
 $userDao = new UserDao($pdo);
+
+$productDao = new ProductDao($pdo);
 
 
 
@@ -24,14 +25,14 @@ switch ($page) {
 
     case 'product':
         require 'controller/ProductController.php';
-        $productController2 = new ProductController();
-        $productController2->indexProduct();
+        $productController2 = new ProductController($productDao);
+        $productController2->displayProductDetails();
         break;
 
     case 'productList':
         require 'controller/ProductController.php';
-        $producList3 = new ProductController();
-        $producList3->listProduct();
+        $producList3 = new ProductController($productDao);
+        $producList3->displayAllProduct();
         break;
 
 

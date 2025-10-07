@@ -18,9 +18,6 @@ class UserController
     public function displayAllUsers()
     {
         $users = $this->userDao->getAllUsers();
-
-        var_dump($users);
-
         require __DIR__ . '/../view/userView.php';
     }
 }
