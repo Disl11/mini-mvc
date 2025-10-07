@@ -21,7 +21,7 @@ class ProductDao
 
         $products = [];
         foreach ($data as $product) {
-            $productObj = new Product($product['title'], $product['price'], $product['id'], $product['Description']);
+            $productObj = new Product($product['title'], $product['price'], $product['id'], $product['description']);
             $products[] = $productObj;
         }
         return $products;
@@ -38,7 +38,7 @@ class ProductDao
 
 
         if ($data) {
-            return new Product($data['title'], $data['price'], $data['id'], $data['Description']);
+            return new Product($data['title'], $data['price'], $data['id'], $data['description']);
         }
         return null;
     }
@@ -48,5 +48,17 @@ class ProductDao
         $query = "DELETE FROM products WHERE id = :id";
         $stmt = $this->pdo->prepare($query);
         $stmt->execute([':id' => $id]);
+    }
+
+
+    public function insertProduct()
+    {
+        $query = "INSERT INTO products(title, price, description) VALUES(:title, :price, :description)";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute([
+            ':title => $title',
+            ':price =>$price',
+            ':description => $description'
+        ]);
     }
 }

@@ -20,6 +20,29 @@
             </li>
         <?php endforeach ?>
     </ul>
+
+    <h2>Ajouter un produit :</h2>
+
+    <form action="" method="post">
+
+        <label for="">Titre du produit:</label>
+        <br>
+        <input type="text" name="title">
+        <br><br>
+
+        <label for="">Prix :</label>
+        <br>
+        <input type="text" name="price">
+        <br><br>
+
+        <label for="">Description:</label>
+        <br>
+        <input type="text" name="description">
+        <br><br>
+
+        <button type="submit" name="addProduct">Ajouter nouveau Produits</button>
+
+    </form>
 </body>
 
 </html>

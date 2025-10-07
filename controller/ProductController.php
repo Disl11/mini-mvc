@@ -38,4 +38,19 @@ class ProductController
         }
         $this->displayAllProduct(); // rafficher la list pas bessoin de requiere 
     }
+
+    public function addProduct()
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $title = $_POST['title'];
+            $price = $_POST['price'];
+            $description = $_POST['description'];
+
+            $this->productDao->insertProduct($title, $price, $description);
+            $this->displayAllProduct();
+        } else {
+            require __DIR__ . '/../view/productView.php';
+        }
+    }
 }

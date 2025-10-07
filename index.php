@@ -50,6 +50,11 @@ switch ($page) {
 
                 break;
 
+            case 'addProduct':
+                $productController->addProduct();
+
+                break;
+
             default:
                 echo "action pas connue !";
                 break;
@@ -61,7 +66,6 @@ switch ($page) {
         echo "<h1> cette page est inconnue ! </h1>";
         break;
 }
-
 
 
 //+++++++ on crée un objet(instance) pour avoir accée a notre base de donnée ++++++
