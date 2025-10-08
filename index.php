@@ -25,6 +25,18 @@ switch ($page) {
             case 'displayAllUsers':
                 $userController1->displayAllUsers();
                 break;
+
+            case 'deleteUser':
+                $userController1->deleteUser();
+                break;
+
+            case 'addUser':
+                $userController1->addUser();
+                break;
+
+            default:
+                echo "action pas connue chez user";
+                break;
         }
 
         break;

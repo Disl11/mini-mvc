@@ -37,4 +37,43 @@ class UserDao
         }
         return null;
     }
+
+    public function deleteUser($id)
+    {
+        try {
+            $query = "DELETE FROM users WHERE id = :id";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute([':id' => $id]);
+        } catch (\PDOException $e) {
+            error_log("erreur requette delete user " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function insertUser(string $name)
+    {
+
+        try {
+            $query = "INSERT INTO users (name) VALUES(:name)";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute([
+                ':name' => $name
+            ]);
+        } catch (\PDOException $e) {
+            error_log("erreur requette l'or de l'insertion" . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function updateUser(string $name)
+    {
+        try {
+            $query = "UPDATE users SET name = :name ";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute([':name' => $name]);
+        } catch (\PDOException $e) {
+            error_log("erreur requette update") . $e->getMessage();
+            return false;
+        }
+    }
 }

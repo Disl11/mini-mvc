@@ -16,7 +16,11 @@
                 <?php echo htmlspecialchars($product->title, ENT_QUOTES, 'UTF-8') . " : "; ?>
                 <?php echo htmlspecialchars($product->price, ENT_QUOTES, 'UTF-8') . "€"; ?>
                 <a href="index.php?page=product&action=detail&id=<?= $product->id; ?>">discription produit</a>
-                <a href="index.php?page=product&action=deleteProduct&id=<?= $product->id ?>">Supprimer</a>
+
+                <form method="post" action="index.php?page=product&action=deleteProduct&id">
+                    <button type="submit" name="id" value="<?= $product->id ?>">Supprimer</button>
+                </form>
+
             </li>
         <?php endforeach ?>
     </ul>
