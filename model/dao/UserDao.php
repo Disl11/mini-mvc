@@ -65,14 +65,17 @@ class UserDao
         }
     }
 
-    public function updateUser(string $name)
+    public function updateUser(int $id, string $name)
     {
         try {
-            $query = "UPDATE users SET name = :name ";
+            $query = "UPDATE users SET name = :name WHERE id = :id ";
             $stmt = $this->pdo->prepare($query);
-            $stmt->execute([':name' => $name]);
+            $stmt->execute([
+                ':name' => $name,
+                ':id' => $id,
+            ]);
         } catch (\PDOException $e) {
-            error_log("erreur requette update") . $e->getMessage();
+            error_log("erreur requette update" . $e->getMessage());
             return false;
         }
     }

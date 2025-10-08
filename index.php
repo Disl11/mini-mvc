@@ -34,9 +34,20 @@ switch ($page) {
                 $userController1->addUser();
                 break;
 
+            case 'updateUser':
+
+                $userController1->updateUser();
+
+            case 'saveUser':
+
+                $userController1->saveUser();
+                
+                break;
+
             default:
                 echo "action pas connue chez user";
                 break;
+
         }
 
         break;

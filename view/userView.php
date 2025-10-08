@@ -19,7 +19,7 @@
                     <button type="submit" name="deleteUser" value="<?= $user->id ?>">Supprimer</button>
                 </form>
                 <form method="post" action="index.php?page=user&action=updateUser&id">
-                    <button type="submit" name="updateUser" value="<? $user->id ?>">Modifier</button>
+                    <button type="submit" name="updateUser" value="<?= $user->id ?>">Modifier</button>
                 </form>
             </li>
         <?php endforeach ?>
