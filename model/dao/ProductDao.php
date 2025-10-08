@@ -36,7 +36,6 @@ class ProductDao
         $stmt->execute([':id' => $id]);
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
         if ($data) {
             return new Product($data['title'], $data['price'], $data['id'], $data['description']);
         }
@@ -51,14 +50,20 @@ class ProductDao
     }
 
 
-    public function insertProduct()
+    public function insertProduct(string $title, int $price, string $description)
     {
-        $query = "INSERT INTO products(title, price, description) VALUES(:title, :price, :description)";
-        $stmt = $this->pdo->prepare($query);
-        $stmt->execute([
-            ':title => $title',
-            ':price =>$price',
-            ':description => $description'
-        ]);
+
+        try {
+            $query = "INSERT INTO products (title, price, description) VALUES(:title, :price, :description)";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute([
+                ':title' => $title,
+                ':price' => $price,
+                ':description' => $description
+            ]);
+        } catch (\PDOException $e) {
+            error_log("erreur requette l'or de l'insertion" . $e->getMessage());
+            return false;
+        }
     }
 }

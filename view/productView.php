@@ -23,7 +23,7 @@
 
     <h2>Ajouter un produit :</h2>
 
-    <form action="" method="post">
+    <form action="index.php?page=product&action=addProduct" method="post">
 
         <label for="">Titre du produit:</label>
         <br>

@@ -32,11 +32,15 @@ class ProductController
 
     public function deleteProduct()
     {
-        if (isset($_GET['id'])) {
-            $id = $_GET['id'];
+        if (isset($_POST['id'])) {
+            $id = $_POST['id'];
             $this->productDao->deleteProduct($id);
         }
-        $this->displayAllProduct(); // rafficher la list pas bessoin de requiere 
+
+        header('Location: index.php?page=product&action=list');
+        exit;
+
+        // $this->displayAllProduct(); // rafficher la list pas bessoin de requiere 
     }
 
     public function addProduct()
@@ -48,7 +52,9 @@ class ProductController
             $description = $_POST['description'];
 
             $this->productDao->insertProduct($title, $price, $description);
-            $this->displayAllProduct();
+
+            header('Location: index.php?page=product&action=list');
+            exit;
         } else {
             require __DIR__ . '/../view/productView.php';
         }
