@@ -20,8 +20,12 @@
                 <form method="post" action="index.php?page=product&action=deleteProduct&id">
                     <button type="submit" name="id" value="<?= $product->id ?>">Supprimer</button>
                 </form>
+                <form method="post" action="index.php?page=product&action=updateProduct&id">
+                    <button type="submit" name="updateProduct" value="<?= $product->id ?>">Modifier</button>
+                </form>
 
             </li>
+            <br>
         <?php endforeach ?>
     </ul>
 

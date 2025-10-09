@@ -11,6 +11,7 @@ $userDao = new UserDao($pdo);
 $productDao = new ProductDao($pdo);
 
 // var_dump($_GET);
+var_dump($_GET['action']);
 
 $page = $_GET['page'] ?? "product";
 $action = $_GET['action'] ?? "list";
@@ -36,18 +37,19 @@ switch ($page) {
 
             case 'updateUser':
 
+                break;
+
                 $userController1->updateUser();
 
             case 'saveUser':
 
                 $userController1->saveUser();
-                
+
                 break;
 
             default:
                 echo "action pas connue chez user";
                 break;
-
         }
 
         break;
@@ -77,6 +79,18 @@ switch ($page) {
                 $productController->addProduct();
 
                 break;
+
+            case 'updateProduct':
+
+                $productController->updateProduct();
+
+                break;
+
+            case 'saveProduct':
+                $productController->saveProduct();
+
+                break;
+
 
             default:
                 echo "action pas connue !";

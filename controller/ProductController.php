@@ -59,4 +59,33 @@ class ProductController
             require __DIR__ . '/../view/productView.php';
         }
     }
+
+    public function updateProduct()
+    {
+        if (isset($_POST['updateProduct'])) {
+            $id = (int)$_POST['updateProduct'];
+
+            $product = $this->productDao->getProductById($id); //on récuperer l'id de l'utilisateur 
+
+            require __DIR__ . '/../view/productUpdateView.php';
+        }
+    }
+
+    public function saveProduct()
+    {
+
+        if (isset($_POST['saveProduct'])) {
+            $id = (int)$_POST['id'];
+            $title = (string)$_POST['title'];
+            $price = (int)$_POST['price'];
+            $description = (string)$_POST['description'];
+
+
+            $this->productDao->updateProduct($id, $title, $price, $description);
+
+            header('Location: index.php?page=product&action=list');
+
+            exit;
+        }
+    }
 }

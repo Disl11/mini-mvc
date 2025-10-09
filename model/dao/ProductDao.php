@@ -66,4 +66,21 @@ class ProductDao
             return false;
         }
     }
+
+    public function updateProduct(int $id, string $title, int $price, string $description)
+    {
+        try {
+            $query = "UPDATE products SET title = :title, price =:price, description =:description  WHERE id = :id ";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute([
+                ':title' => $title,
+                ':price' => $price,
+                ':description' => $description,
+                ':id' => $id
+            ]);
+        } catch (\PDOException $e) {
+            error_log("erreur requette update product" . $e->getMessage());
+            return false;
+        }
+    }
 }
